@@ -5,7 +5,6 @@ Efetue um fork deste projeto para então iniciar o desenvolvimento. Após a conc
 # Sobre o teste
 ___
 Crie um SPA que deverá consumir a [PokeAPI](https://pokeapi.co/) usando [NextJS](https://nextjs.org/).
-![Sugestão de layout que pode ser utilizado na aplicação](https://ibb.co/b3MPSS5)
 
 #### O web app deverá permitir: 
 - Busca por pokemons (Nome, tipo, habilidade);
