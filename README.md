@@ -1,9 +1,11 @@
 # Vaga de desenvolvedor fullstack
 ___
+
 Efetue um fork deste projeto para então iniciar o desenvolvimento. Após a conclusão do teste, você deverá efetuar um pull-request para este repositório e enviar um e-mail para brunoc@suamusica.com.br, confirmando a entrega.
 
 # Sobre o teste
 ___
+
 Crie um SPA que deverá consumir a [PokeAPI](https://pokeapi.co/) usando [NextJS](https://nextjs.org/).
 
 #### O web app deverá permitir: 
