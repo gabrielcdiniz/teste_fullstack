@@ -17,7 +17,7 @@ Crie um SPA que deverá consumir a [PokeAPI](https://pokeapi.co/) usando [NextJS
 - Boas práticas de desenvolvimento;
 - Cleancode;
 - Controle correto de [rotas](https://nextjs.org/docs/routing/introduction) da aplicação;
-- Estrutura HTML;
+- Estrutura HTML, Componentes;
 - Utilização de [SCSS](https://sass-lang.com/);
 - [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html), [Context API](https://pt-br.reactjs.org/docs/context.html);
 
