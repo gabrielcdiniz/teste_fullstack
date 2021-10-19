@@ -10,13 +10,16 @@ Crie um SPA que deverá consumir a [PokeAPI](https://pokeapi.co/) usando [NextJS
 - Busca por pokemons (Nome, tipo, habilidade);
 - Listar pokemons (com seus respectivos thumbnails);
 - Permitir a visualização detalhada de cada pokemon;
-- Permitir criar uma lista de pokemons favoritos e adicionar/remover pokemons a esta lista. (Não é necessário salvar no banco de dados, pode ser apenas por sessão.)
+- Permitir criar uma lista de pokemons favoritos e adicionar/remover pokemons a esta lista. (Não é necessário salvar no banco de dados);
 
 #### O que iremos avaliar?
 - Documentação (Explique para nós como utilizar o seu projeto);
 - Boas práticas de desenvolvimento;
 - Cleancode;
-- Controle correto de rotas da aplicação;
+- Controle correto de [rotas](https://nextjs.org/docs/routing/introduction) da aplicação;
+- Estrutura HTML;
+- Utilização de [SCSS](https://sass-lang.com/);
+- [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html), [Context API](https://pt-br.reactjs.org/docs/context.html);
 
 #### É um diferencial, se você adicionar ao seu projeto:
 - Deploy, utilizando [Serverless Framework](https://www.serverless.com/).
