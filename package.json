@@ -1,0 +1,31 @@
+{
+  "name": "teste_fullstack",
+  "version": "1.0.0",
+  "description": "Teste para vaga Full Stack - Sua Música",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielcdiniz/teste_fullstack.git"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "pokeApi"
+  ],
+  "author": "Gabriel C Diniz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabrielcdiniz/teste_fullstack/issues"
+  },
+  "homepage": "https://github.com/gabrielcdiniz/teste_fullstack#readme",
+  "dependencies": {
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "^1.43.2"
+  }
+}
