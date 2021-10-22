@@ -16,6 +16,11 @@ export default class PokeDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap"
             rel="stylesheet"
           />
+          <link
+            rel="shortcut icon"
+            href="/img/pokemon-favicon.ico"
+            type="image/x-icon"
+          />
         </Head>
         <body>
           <Main />

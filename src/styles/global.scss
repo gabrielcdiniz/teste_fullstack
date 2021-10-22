@@ -4,5 +4,50 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'RocknRoll One', sans-serif;
+
+  font-size: 1rem;
+  font-family: "RocknRoll One", sans-serif;
+
+  color: var(--ebony);
+  user-select: none;
+}
+
+body,
+html {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, var(--purple), var(--periwinkle));
+}
+
+:root {
+  // theme pallete
+  --white: #f6f6f6;
+  --black: #272727;
+  --ebony: #281c2d;
+  --pink: #e84a8f;
+  --rose: #f6d4d2;
+  --purple: #a16ae8;
+  --blue-iris: #4120a9;
+  --periwinkle: #a1a9fe;
+  --text-light: var(--white);
+  --text-dark: var(--black);
+
+  // pokemon types colors
+  --type-normal: #a4acaf;
+  --type-poison: #8155ba;
+  --type-eletric: #fede00;
+  --type-ground: #ab9842;
+  --type-fairy: #fdb9e9;
+  --type-bug: #729f3f;
+  --type-grass: #9bcc50;
+  --type-water: #4592c4;
+  --type-fighting: #d56723;
+  --type-fire: #fd7d24;
+  --type-psychic: #f366b9;
+  --type-rock: #a38c21;
+  --type-steel: #9eb7b8;
+  --type-flying: #3dc7ef;
+  --type-ice: #51c4e7;
+  --type-ghost: #7b62a3;
+  --type-dragon: #f16e57;
+  --type-dark: #707070;
 }

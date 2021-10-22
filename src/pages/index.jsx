@@ -1,32 +1,48 @@
-import { PokeAPI } from "../services/api";
+import { useContext, useEffect, useState } from "react";
+import { Grid } from "../components/Grid/Grid";
+import { Loading } from "../components/Loading/Loading";
+import { PokemonContext } from "../contexts/PokemonContext";
+import { baseURL, PokeAPI } from "../services/api";
 
-function IndexPage(props) {
-  const { pokemons } = props;
+import { PokeCard } from "./../components/Card/Card";
+
+function IndexPage() {
+  const { pokemonList, setPokemonList } = useContext(PokemonContext);
+
+  const [loading, setLoading] = useState(true);
+
+  const getPokemonsList = async () => {
+    const {
+      data: { results },
+    } = await PokeAPI.get(`${baseURL}?limit=12`);
+
+    let pokemonsDescriptions = [];
+    for (const { url } of results) {
+      const { data } = await PokeAPI.get(url);
+      pokemonsDescriptions.push(data);
+    }
+
+    setPokemonList(pokemonsDescriptions);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    getPokemonsList();
+  }, []);
 
   return (
-    <div>
-      <span>Welcome</span>
-      {pokemons?.map(({ name }, index) => (
-        <div key={index}>{name}</div>
-      ))}
-    </div>
+    <>
+      <Loading isActive={loading} message="Carregando Pokemons ..." />
+      {!loading && (
+        <Grid>
+          {pokemonList.map((pokemon) => (
+            <PokeCard key={pokemon?.id} data={pokemon} />
+          ))}
+        </Grid>
+      )}
+    </>
   );
-}
-
-export async function getStaticProps() {
-  const { data } = await PokeAPI.get();
-
-  console.log("POKEMONS STATIC", data);
-
-  let props = {};
-  if (!!data) {
-    const { results } = data;
-    props = { pokemons: results };
-  }
-
-  return {
-    props,
-  };
 }
 
 export default IndexPage;
