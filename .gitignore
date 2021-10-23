@@ -6,8 +6,6 @@ dist/
 .serverless/
 .serverless_*/
 
-next.config.js
-
 # Compiled Java class files
 *.class
 
