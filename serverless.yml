@@ -1,2 +1,12 @@
 PokeNextApp:
   component: "@sls-next/serverless-component"
+  inputs:
+    bucketName: "nextjs-pokeapi"
+    description: "PokeAPI - NextJS"
+    timeout:
+      defaultLambda: 20
+      apiLambda: 15
+      imageLambda: 15
+    memory:
+      defaultLambda: 1024
+      apiLambda: 1024
