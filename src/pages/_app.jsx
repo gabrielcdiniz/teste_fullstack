@@ -7,7 +7,7 @@ function PokeApp({ Component, pageProps }) {
   return (
     <PokemonProvider>
       <Head>
-          <title>Pokémon NextJS</title>
+          <title>Pokedéx NextJS</title>
       </Head>
       <Component {...pageProps} />
     </PokemonProvider>

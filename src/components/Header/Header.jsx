@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "./styles.module.scss";
 
@@ -14,13 +15,23 @@ export function Header({ logoSize }) {
           />
         </div>
       </div>
+
       <div className={styles.Row}>
-        <div className={styles.All}>
-          <p>Todos Pokémons</p>
-        </div>
-        <div className={styles.Favorites}>
-          <p>Favoritos</p>
-        </div>
+        <Link href="/">
+          <a className={styles.All}>
+            <div>
+              <p>Todos Pokémons</p>
+            </div>
+          </a>
+        </Link>
+
+        <Link href="/favorites">
+          <a className={styles.Favorites}>
+            <div>
+              <p>Pokémons Favoritos</p>
+            </div>
+          </a>
+        </Link>
       </div>
     </header>
   );

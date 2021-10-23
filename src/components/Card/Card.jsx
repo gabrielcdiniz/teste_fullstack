@@ -1,16 +1,11 @@
 import Image from "next/image";
-import { useContext, useState, useEffect } from "react";
-
-import { FaRegHeart } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
-import { PokemonContext } from "../../contexts/PokemonContext";
+import { useState } from "react";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 import styles from "./styles.module.scss";
 
-export function PokeCard({ data }) {
-  const { favoritesList, setFavoritesList } = useContext(PokemonContext);
-
-  const [favorite, setFavorite] = useState(false);
+export function PokeCard({ data: { pokemon, add, pop, isFavorite } }) {
+  const [favorite, setFavorite] = useState(isFavorite || false);
 
   const getTypes = (name, index) => (
     <span key={index} className={`${styles.Type} ${styles[name]}`}>
@@ -18,43 +13,29 @@ export function PokeCard({ data }) {
     </span>
   );
 
-  const appendFavorite = () => {
-    setFavoritesList((prev) => {
-      prev.push(data.id);
-      return [...prev];
-    });
-  };
-
-  const popFavorite = () => {
-    const prevList = [...favoritesList];
-    const index = prevList.findIndex((id) => id === data.id);
-
-    prevList.splice(index, 1);
-
-    setFavoritesList(prevList);
-  };
-
-  useEffect(() => {
-    if (favorite) {
-      appendFavorite();
-    }
-
-    if (!favorite) {
-      popFavorite();
-    }
-  }, [favorite]);
-
   return (
     <div className={styles.Card}>
       <div className={styles.CardHeader}>
         {favorite ? (
-          <FaHeart onClick={() => setFavorite(!favorite)} size={24} />
+          <FaHeart
+            onClick={() => {
+              setFavorite(!favorite);
+              pop(pokemon);
+            }}
+            size={24}
+          />
         ) : (
-          <FaRegHeart onClick={() => setFavorite(!favorite)} size={24} />
+          <FaRegHeart
+            onClick={() => {
+              setFavorite(!favorite);
+              add(pokemon);
+            }}
+            size={24}
+          />
         )}
         <Image
           src={
-            data?.sprites.other["official-artwork"]["front_default"] ||
+            pokemon?.sprites.other["official-artwork"]["front_default"] ||
             "/img/image-default.png"
           }
           width={140}
@@ -63,12 +44,14 @@ export function PokeCard({ data }) {
       </div>
 
       <div className={styles.CardContent}>
-        <b className={styles.CardId}># {String(data?.id).padStart(4, "0")}</b>
+        <b className={styles.CardId}>
+          # {String(pokemon?.id).padStart(4, "0")}
+        </b>
 
-        <h3 className={styles.CardName}>{data?.name}</h3>
+        <h3 className={styles.CardName}>{pokemon?.name}</h3>
 
         <div className={styles.CardTypes}>
-          {data?.types.map(({ type }, index) => getTypes(type.name, index))}
+          {pokemon?.types.map(({ type }, index) => getTypes(type.name, index))}
         </div>
       </div>
     </div>

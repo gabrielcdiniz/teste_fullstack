@@ -2,19 +2,31 @@
 
 .GridContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   padding: 32px 0;
+
+  .GridTitle,
+  .Grid {
+    width: 100%;
+    max-width: 750px;
+  }
+
+  .GridTitle {
+    font-size: 1.75rem;
+    border-bottom: 3px solid var(--ebony);
+
+    padding: 8px;
+    margin-bottom: 16px;
+  }
 
   .Grid {
     display: grid;
     gap: 8px;
     justify-items: center;
     align-items: center;
-
-    width: 100%;
-    max-width: 750px;
   }
 }
 
@@ -28,24 +40,40 @@
 
 @media screen and (max-width: 768px) {
   .GridContainer {
+    .GridTitle,
+    .Grid {
+      max-width: 575px;
+    }
+
     .Grid {
       grid-template-columns: 1fr 1fr 1fr;
-      max-width: 575px;
     }
   }
 }
 
 @media screen and (max-width: 550px) {
   .GridContainer {
+    .GridTitle, .Grid {
+      max-width: 350px;
+    }
+
+    .GridTitle {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
     .Grid {
       grid-template-columns: 1fr 1fr;
-      max-width: 350px;
     }
   }
 }
 
 @media screen and (max-width: 375px) {
   .GridContainer {
+    .GridTitle {
+      max-width: 300px;
+    }
+
     .Grid {
       grid-template-columns: 1fr;
     }

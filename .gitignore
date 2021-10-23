@@ -2,7 +2,9 @@
 node_modules/
 dist/
 .next/
-.aws
+.aws/
+.serverless/
+.serverless_*/
 
 next.config.js
 
