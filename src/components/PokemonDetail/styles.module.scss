@@ -1,0 +1,212 @@
+@charset 'utf-8';
+
+.DetailContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 32px 0;
+
+  .DetailTitle,
+  .Detail {
+    width: 100%;
+    max-width: 750px;
+  }
+
+  .DetailTitle {
+    font-size: 1.75rem;
+    border-bottom: 3px solid var(--ebony);
+
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+
+  .Detail {
+    height: 300px;
+
+    .DetailCard {
+      transition: all 0.2s;
+
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      align-items: center;
+      grid-template-areas: "header content";
+
+      width: 100%;
+      height: 380px;
+
+      border-radius: 8px;
+
+      padding: 32px;
+      position: relative;
+      background-color: var(--rose);
+      box-shadow: 0px 0px 4px var(--blue-iris);
+
+      .DetailCardHeader {
+        grid-area: "header";
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        width: 100%;
+        height: 300px;
+
+        border-radius: 4px;
+
+        & > div:first-child {
+          border-radius: 4px;
+          background-color: var(--white);
+        }
+
+        .HeaderArea {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          &:nth-child(2) {
+            margin-top: 4px;
+            align-items: flex-start;
+          }
+
+          svg {
+            cursor: pointer;
+
+            fill: var(--pink);
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            z-index: 9;
+
+            &:active {
+              transform: scale(0.9);
+            }
+          }
+
+          .CardId {
+            font-size: 0.75rem;
+          }
+
+          .CardName {
+            font-size: 1.1rem;
+          }
+
+          .CardTypes {
+            margin-top: 4px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4px;
+
+            .Type {
+              padding: 0 8px;
+              text-align: center;
+              border-radius: 4px / 2px;
+              font-size: 0.9rem;
+              text-transform: uppercase;
+            }
+
+            .normal {
+              background-color: var(--type-normal);
+              color: var(--text-dark);
+            }
+
+            .poison {
+              background-color: var(--type-poison);
+              color: var(--text-light);
+            }
+
+            .electric {
+              background-color: var(--type-eletric);
+              color: var(--text-dark);
+            }
+
+            .ground {
+              background-color: var(--type-ground);
+              color: var(--text-dark);
+            }
+
+            .fairy {
+              background-color: var(--type-fairy);
+              color: var(--text-dark);
+            }
+
+            .fighting {
+              background-color: var(--type-fighting);
+              color: var(--text-dark);
+            }
+
+            .flying {
+              background-color: var(--type-flying);
+              color: var(--text-dark);
+            }
+
+            .rock {
+              background-color: var(--type-rock);
+              color: var(--text-dark);
+            }
+
+            .bug {
+              background-color: var(--type-bug);
+              color: var(--text-dark);
+            }
+
+            .ghost {
+              background-color: var(--type-ghost);
+              color: var(--text-light);
+            }
+
+            .steel {
+              background-color: var(--type-steel);
+              color: var(--text-dark);
+            }
+
+            .fire {
+              background-color: var(--type-fire);
+              color: var(--text-dark);
+            }
+
+            .water {
+              background-color: var(--type-water);
+              color: var(--text-dark);
+            }
+
+            .grass {
+              background-color: var(--type-grass);
+              color: var(--text-dark);
+            }
+
+            .psychic {
+              background-color: var(--type-psychic);
+              color: var(--text-dark);
+            }
+
+            .ice {
+              background-color: var(--type-ice);
+              color: var(--text-dark);
+            }
+
+            .dragon {
+              background-color: var(--type-dragon);
+              color: var(--text-dark);
+            }
+
+            .dark {
+              background-color: var(--type-dark);
+              color: var(--text-light);
+            }
+          }
+        }
+      }
+
+      &:hover {
+        box-shadow: 0px 0px 16px var(--blue-iris);
+      }
+    }
+  }
+}

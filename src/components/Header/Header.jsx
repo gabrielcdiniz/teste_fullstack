@@ -7,13 +7,15 @@ export function Header({ logoSize }) {
   return (
     <header className={styles.Header}>
       <div className={styles.Row}>
-        <div className={styles.Logo}>
-          <Image
-            src="/img/pokemon-logo.png"
-            width={logoSize}
-            height={logoSize / 2.25}
-          />
-        </div>
+        <Link href="/">
+          <div className={styles.Logo}>
+            <Image
+              src="/img/pokemon-logo.png"
+              width={logoSize}
+              height={logoSize / 2.25}
+            />
+          </div>
+        </Link>
       </div>
 
       <div className={styles.Row}>
