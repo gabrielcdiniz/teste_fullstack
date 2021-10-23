@@ -1,0 +1,14 @@
+@charset 'utf-8';
+
+.Layout {
+  min-height: 100vh;
+  z-index: 99;
+
+  .Content {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: calc(100vh - 100px);
+    overflow: auto;
+  }
+}

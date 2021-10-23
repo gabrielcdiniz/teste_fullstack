@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
@@ -17,6 +17,32 @@ export function PokeCard({ data }) {
       {name}
     </span>
   );
+
+  const appendFavorite = () => {
+    setFavoritesList((prev) => {
+      prev.push(data.id);
+      return [...prev];
+    });
+  };
+
+  const popFavorite = () => {
+    const prevList = [...favoritesList];
+    const index = prevList.findIndex((id) => id === data.id);
+
+    prevList.splice(index, 1);
+
+    setFavoritesList(prevList);
+  };
+
+  useEffect(() => {
+    if (favorite) {
+      appendFavorite();
+    }
+
+    if (!favorite) {
+      popFavorite();
+    }
+  }, [favorite]);
 
   return (
     <div className={styles.Card}>

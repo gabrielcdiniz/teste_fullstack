@@ -1,0 +1,73 @@
+@charset 'utf-8';
+
+.Header {
+  $header-height: 100px;
+  $header-pd: 8px;
+
+  background-image: linear-gradient(to bottom right, var(--blue-iris), 60%, var(--purple));
+  box-shadow: 1px 0px 15px -2px var(--ebony);
+
+  position: fixed;
+  top: 0;
+  z-index: 999;
+
+  width: 100%;
+  height: $header-height;
+
+  padding: $header-pd 15%;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  .Row {
+    width: 100%;
+    margin-top: 4px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Logo,
+  .All,
+  .Favorites {
+    cursor: pointer;
+    width: 100%;
+    height: calc($header-height / 2 - ($header-pd * 2));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+  }
+
+  .All,
+  .Favorites {
+    width: 50%;
+    margin: 8px 4px 0 4px;
+    transition: all 0.5s;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: var(--purple);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Header {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .Header {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}

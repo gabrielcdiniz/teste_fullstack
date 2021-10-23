@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Grid } from "../components/Grid/Grid";
 import { Loading } from "../components/Loading/Loading";
+import { LoadMore } from "../components/LoadMore/LoadMore";
+import { Layout } from "../components/Layout/Layout";
 import { PokemonContext } from "../contexts/PokemonContext";
 import { baseURL, PokeAPI } from "../services/api";
 
@@ -10,11 +12,14 @@ function IndexPage() {
   const { pokemonList, setPokemonList } = useContext(PokemonContext);
 
   const [loading, setLoading] = useState(true);
+  const [nextUrl, setNextUrl] = useState(`${baseURL}?limit=12`);
 
   const getPokemonsList = async () => {
     const {
-      data: { results },
-    } = await PokeAPI.get(`${baseURL}?limit=12`);
+      data: { results, next },
+    } = await PokeAPI.get(nextUrl);
+
+    setNextUrl(next);
 
     let pokemonsDescriptions = [];
     for (const { url } of results) {
@@ -22,7 +27,7 @@ function IndexPage() {
       pokemonsDescriptions.push(data);
     }
 
-    setPokemonList(pokemonsDescriptions);
+    setPokemonList((prev) => [...prev, ...pokemonsDescriptions]);
     setLoading(false);
   };
 
@@ -32,16 +37,20 @@ function IndexPage() {
   }, []);
 
   return (
-    <>
+    <Layout>
+      <Grid>
+        {pokemonList.map((pokemon) => (
+          <PokeCard key={pokemon?.id} data={pokemon} />
+        ))}
+      </Grid>
       <Loading isActive={loading} message="Carregando Pokemons ..." />
-      {!loading && (
-        <Grid>
-          {pokemonList.map((pokemon) => (
-            <PokeCard key={pokemon?.id} data={pokemon} />
-          ))}
-        </Grid>
-      )}
-    </>
+      <LoadMore
+        action={() => {
+          setLoading(true);
+          getPokemonsList();
+        }}
+      />
+    </Layout>
   );
 }
 
