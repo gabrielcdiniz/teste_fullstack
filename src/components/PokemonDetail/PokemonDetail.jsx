@@ -17,31 +17,12 @@ import { Loading } from "../Loading/Loading";
 import styles from "./styles.module.scss";
 
 export function PokemonDetail() {
-  const { pokemon, favoritesList, setFavoritesList } =
-    useContext(PokemonContext);
+  const { pokemon } = useContext(PokemonContext);
 
-  const isFavorite = favoritesList.some(({ id }) => id === pokemon?.id);
-  const [favorite, setFavorite] = useState(isFavorite || false);
   const [loading, setLoading] = useState(false);
 
   const [stats, setStats] = useState([]);
   const [abilities, setAbilities] = useState([]);
-
-  const appendFavorite = (pokemon) => {
-    setFavoritesList((prev) => {
-      prev.push(pokemon);
-      return [...prev];
-    });
-  };
-
-  const popFavorite = (pokemon) => {
-    const prevList = [...favoritesList];
-    const index = prevList.findIndex(({ id }) => id === pokemon.id);
-
-    prevList.splice(index, 1);
-
-    setFavoritesList(prevList);
-  };
 
   const getTypes = (name, index) => (
     <span key={index} className={`${styles.Type} ${styles[name]}`}>
@@ -49,7 +30,7 @@ export function PokemonDetail() {
     </span>
   );
 
-  const captilizeName = (name) => {
+  const capitilizeName = (name) => {
     const sep = "-";
     return name
       .split(sep)
@@ -139,7 +120,7 @@ export function PokemonDetail() {
     <div className={styles.DetailContainer}>
       <h2 className={styles.DetailTitle}>
         {!!pokemon ? (
-          <>Detalhes de {captilizeName(pokemon.name)}</>
+          <>Detalhes de {capitilizeName(pokemon.name)}</>
         ) : (
           <>Nenhum Pokémon com Esse Nome</>
         )}
@@ -152,25 +133,6 @@ export function PokemonDetail() {
           <div className={styles.DetailCard}>
             <div className={styles.DetailCardHeader}>
               <div className={styles.HeaderArea}>
-                {favorite ? (
-                  <FaHeart
-                    onClick={(ev) => {
-                      ev.preventDefault();
-                      setFavorite(!favorite);
-                      popFavorite(pokemon);
-                    }}
-                    size={48}
-                  />
-                ) : (
-                  <FaRegHeart
-                    onClick={(ev) => {
-                      ev.preventDefault();
-                      setFavorite(!favorite);
-                      appendFavorite(pokemon);
-                    }}
-                    size={48}
-                  />
-                )}
                 <Image
                   src={
                     pokemon?.sprites.other["official-artwork"][
@@ -187,7 +149,7 @@ export function PokemonDetail() {
                   # {String(pokemon?.id).padStart(4, "0")}
                 </b>
 
-                <h3 className={styles.CardName}>{pokemon?.name}</h3>
+                <h3 className={styles.CardName}>{capitilizeName(pokemon?.name)}</h3>
 
                 <div className={styles.CardTypes}>
                   {pokemon?.types.map(({ type }, index) =>
@@ -210,7 +172,7 @@ export function PokemonDetail() {
                         <div>
                           {getStatIcon(name)}
                           <p className={styles.StatName}>
-                            {captilizeName(name)}
+                            {capitilizeName(name)}
                           </p>
                         </div>
                         <b className={styles.StatValue}>{value}</b>
@@ -229,7 +191,7 @@ export function PokemonDetail() {
                       key={`${pokemon?.name}-${name}`}
                       className={styles.Ability}
                     >
-                      <b className={styles.Name}>{captilizeName(name)}</b>
+                      <b className={styles.Name}>{capitilizeName(name)}</b>
                       <p className={styles.Description}>{description}</p>
                     </div>
                   ))}

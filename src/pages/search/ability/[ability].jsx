@@ -1,15 +1,45 @@
-import { useContext, useState } from "react";
-import { Loading } from "../../../components/Loading/Loading";
-import { Layout } from "../../../components/Layout/Layout";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
+import { HiOutlineEmojiSad } from "react-icons/hi";
 import { Grid } from "../../../components/Grid/Grid";
+import { Layout } from "../../../components/Layout/Layout";
+import { Loading } from "../../../components/Loading/Loading";
 import { PokeCard } from "../../../components/PokeCard/PokeCard";
 import { PokemonContext } from "../../../contexts/PokemonContext";
+import { baseURL, PokeAPI } from "../../../services/api";
 
 export default function Search() {
+  const {
+    query: { ability },
+  } = useRouter();
+
   const { favoritesList, setFavoritesList } = useContext(PokemonContext);
 
   const [loading, setLoading] = useState(false);
   const [pokemonsSearchList, setPokemonsSearchList] = useState([]);
+
+  const getPokemonsList = async () => {
+    try {
+      const {
+        data: { pokemon },
+      } = await PokeAPI.get(`${baseURL}/ability/${ability}`);
+
+      let pokemons = [];
+      for (const {
+        pokemon: { url },
+      } of pokemon) {
+        const { data } = await PokeAPI.get(url);
+        pokemons.push(data);
+      }
+
+      setPokemonsSearchList((prev) => [...prev, ...pokemons]);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setPokemonsSearchList([]);
+      setLoading(false);
+    }
+  };
 
   const appendFavorite = (pokemon) => {
     setFavoritesList((prev) => {
@@ -27,9 +57,27 @@ export default function Search() {
     setFavoritesList(prevList);
   };
 
+  useEffect(() => {
+    setLoading(true);
+    getPokemonsList();
+  }, [ability]);
+
   return (
     <Layout>
       <Grid gridTitle="Pokémons Encontrados">
+        {pokemonsSearchList.length === 0 && !loading && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <HiOutlineEmojiSad size={30} />
+            <span>Nenhum Pokémon</span>
+          </div>
+        )}
+
         {pokemonsSearchList.map((pokemon) => (
           <PokeCard
             key={pokemon?.id}

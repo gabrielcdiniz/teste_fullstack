@@ -14,6 +14,14 @@ export function PokeCard({ data: { pokemon, add, pop, isFavorite } }) {
     </span>
   );
 
+  const capitilizeName = (name) => {
+    const sep = "-";
+    return name
+      .split(sep)
+      .map((text) => text.charAt(0).toUpperCase() + text.slice(1))
+      .join(" ");
+  };
+
   return (
     <Link href={`/detail/${pokemon.name}`}>
       <div className={styles.Card}>
@@ -52,7 +60,7 @@ export function PokeCard({ data: { pokemon, add, pop, isFavorite } }) {
             # {String(pokemon?.id).padStart(4, "0")}
           </b>
 
-          <h3 className={styles.CardName}>{pokemon?.name}</h3>
+          <h3 className={styles.CardName}>{capitilizeName(pokemon?.name)}</h3>
 
           <div className={styles.CardTypes}>
             {pokemon?.types.map(({ type }, index) =>

@@ -52,7 +52,7 @@ export default function Search() {
       data: { results },
     } = await PokeAPI.get(url);
 
-    const list = results.map(({ name }) => name);
+    const list = results.map(({ name }) => name).sort();
 
     setAbilitiesList(list);
   };
@@ -84,7 +84,6 @@ export default function Search() {
             <div className={styles.GroupContent}>
               <form onSubmit={onSubmit}>
                 <input
-                  value={searchValue}
                   placeholder="Digite Aqui"
                   onChange={(ev) =>
                     setSearchValue(String(ev.target.value).toLowerCase())
