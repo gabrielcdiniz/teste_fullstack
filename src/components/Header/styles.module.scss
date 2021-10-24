@@ -34,7 +34,8 @@
 
   .Logo,
   .All,
-  .Favorites {
+  .Favorites,
+  .Search {
     cursor: pointer;
     width: 100%;
     height: calc($header-height / 2 - ($header-pd * 2));
@@ -50,13 +51,16 @@
   }
 
   .All,
-  .Favorites {
+  .Favorites,
+  .Search {
     width: 50%;
     margin: 8px 4px 0 4px;
     transition: all 0.5s;
     border-radius: 4px;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       background-color: var(--purple);
     }
   }
@@ -66,6 +70,14 @@
   .Header {
     padding-left: 10%;
     padding-right: 10%;
+
+    .All,
+    .Favorites,
+    .Search {
+      p {
+        font-size: 0.75rem;
+      }
+    }
   }
 }
 
@@ -73,5 +85,28 @@
   .Header {
     padding-left: 5%;
     padding-right: 5%;
+
+    .All,
+    .Favorites,
+    .Search {
+      p {
+        font-size: 0.6rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .Header {
+    padding-left: 5%;
+    padding-right: 5%;
+
+    .All,
+    .Favorites,
+    .Search {
+      p {
+        font-size: 0.5rem;
+      }
+    }
   }
 }

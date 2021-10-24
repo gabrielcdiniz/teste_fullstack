@@ -20,19 +20,21 @@ export function Header({ logoSize }) {
 
       <div className={styles.Row}>
         <Link href="/">
-          <a className={styles.All}>
-            <div>
-              <p>Todos Pokémons</p>
-            </div>
-          </a>
+          <div className={styles.All}>
+            <p>Todos Pokémons</p>
+          </div>
+        </Link>
+
+        <Link href="/search">
+          <div className={styles.Search}>
+            <p>Pesquisar Pokémons</p>
+          </div>
         </Link>
 
         <Link href="/favorites">
-          <a className={styles.Favorites}>
-            <div>
-              <p>Pokémons Favoritos</p>
-            </div>
-          </a>
+          <div className={styles.Favorites}>
+            <p>Pokémons Favoritos</p>
+          </div>
         </Link>
       </div>
     </header>

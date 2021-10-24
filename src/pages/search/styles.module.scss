@@ -1,0 +1,246 @@
+@charset 'utf-8';
+
+.SearchContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 32px 0;
+
+  .SearchTitle {
+    font-size: 1.75rem;
+    border-bottom: 3px solid var(--ebony);
+
+    padding: 8px;
+    margin-bottom: 16px;
+
+    width: 100%;
+    max-width: 750px;
+  }
+
+  .Row {
+    width: 100%;
+    max-width: 750px;
+    padding: 16px 0;
+    background-color: var(--rose);
+
+    .Group {
+      margin: 0 8px;
+
+      .GroupTitle {
+        margin-bottom: 4px;
+      }
+
+      .GroupContent {
+        input,
+        button {
+          transition: all 0.2s;
+        }
+
+        input {
+          outline: none;
+          border: 1px solid var(--blue-iris);
+          color: var(--ebony);
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+          background-color: var(--white);
+          padding: 8px;
+          width: 70%;
+        }
+
+        input:focus {
+          box-shadow: 0px 0px 4px inset var(--ebony);
+        }
+
+        button {
+          width: 30%;
+          opacity: 0.8;
+          cursor: pointer;
+          outline: none;
+          border: 1px solid var(--blue-iris);
+          color: var(--white);
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          background-color: var(--purple);
+          padding: 8px;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+
+      .GroupGrid {
+        margin-top: 4px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 4px;
+
+        .Type,
+        .Ability {
+          cursor: pointer;
+          padding: 8px;
+          text-align: center;
+          border-radius: 4px / 2px;
+          font-size: 0.5rem;
+          text-transform: uppercase;
+          transition: all 0.2s;
+
+          &:hover {
+            box-shadow: 0px 0px 4px var(--ebony);
+          }
+
+          &:active,
+          &:focus {
+            transform: scale(0.95);
+            box-shadow: 0px 0px 2px var(--ebony);
+          }
+        }
+
+        .Ability {
+          border: 1px solid var(--purple);
+        }
+
+        .normal {
+          background-color: var(--type-normal);
+          color: var(--text-dark);
+        }
+
+        .poison {
+          background-color: var(--type-poison);
+          color: var(--text-light);
+        }
+
+        .electric {
+          background-color: var(--type-eletric);
+          color: var(--text-dark);
+        }
+
+        .ground {
+          background-color: var(--type-ground);
+          color: var(--text-dark);
+        }
+
+        .fairy {
+          background-color: var(--type-fairy);
+          color: var(--text-dark);
+        }
+
+        .fighting {
+          background-color: var(--type-fighting);
+          color: var(--text-dark);
+        }
+
+        .flying {
+          background-color: var(--type-flying);
+          color: var(--text-dark);
+        }
+
+        .rock {
+          background-color: var(--type-rock);
+          color: var(--text-dark);
+        }
+
+        .bug {
+          background-color: var(--type-bug);
+          color: var(--text-dark);
+        }
+
+        .ghost {
+          background-color: var(--type-ghost);
+          color: var(--text-light);
+        }
+
+        .steel {
+          background-color: var(--type-steel);
+          color: var(--text-dark);
+        }
+
+        .fire {
+          background-color: var(--type-fire);
+          color: var(--text-dark);
+        }
+
+        .water {
+          background-color: var(--type-water);
+          color: var(--text-dark);
+        }
+
+        .grass {
+          background-color: var(--type-grass);
+          color: var(--text-dark);
+        }
+
+        .psychic {
+          background-color: var(--type-psychic);
+          color: var(--text-dark);
+        }
+
+        .ice {
+          background-color: var(--type-ice);
+          color: var(--text-dark);
+        }
+
+        .dragon {
+          background-color: var(--type-dragon);
+          color: var(--text-dark);
+        }
+
+        .dark {
+          background-color: var(--type-dark);
+          color: var(--text-light);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .SearchContainer {
+    .SearchTitle,
+    .Row {
+      max-width: 575px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .SearchContainer {
+    .SearchTitle,
+    .Row {
+      max-width: 350px;
+    }
+
+    .Row {
+      .Group {
+        .GroupGrid {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+      }
+    }
+
+    .SearchTitle {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .SearchContainer {
+    .SearchTitle {
+      max-width: 300px;
+    }
+
+    .Row {
+      .Group {
+        .GroupGrid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+    }
+  }
+}

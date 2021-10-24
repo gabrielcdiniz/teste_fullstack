@@ -17,10 +17,9 @@ export default function Detail() {
   const [loading, setLoading] = useState(false);
 
   const getPokemon = async () => {
-    const url = `${baseURL}/${pokemonName}`;
+    const url = `${baseURL}/pokemon/${pokemonName}`;
     const { data, status } = await PokeAPI.get(url);
 
-    console.log("DATA POKE, STATUS", data, status);
     if (status === 200) {
       setPokemon(data);
     } else {
@@ -44,11 +43,4 @@ export default function Detail() {
       <Loading isActive={loading} message="Carregando Detalhes ..." />
     </Layout>
   );
-}
-
-export async function getServerSideProps({ params }) {
-  console.log("PARAMS SS", params);
-  return {
-    props: {},
-  };
 }

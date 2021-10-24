@@ -5,7 +5,7 @@ import { Loading } from "../components/Loading/Loading";
 import { LoadMore } from "../components/LoadMore/LoadMore";
 import { PokemonContext } from "../contexts/PokemonContext";
 import { baseURL, PokeAPI } from "../services/api";
-import { PokeCard } from "./../components/Card/Card";
+import { PokeCard } from "../components/PokeCard/PokeCard";
 
 function IndexPage() {
   const { pokemonList, setPokemonList, favoritesList, setFavoritesList } =
@@ -13,7 +13,7 @@ function IndexPage() {
 
   const [loading, setLoading] = useState(false);
   const [nextUrl, setNextUrl] = useState(
-    `${baseURL}?limit=12&offset=${pokemonList.length}`
+    `${baseURL}/pokemon?limit=12&offset=${pokemonList.length}`
   );
 
   const getPokemonsList = async () => {

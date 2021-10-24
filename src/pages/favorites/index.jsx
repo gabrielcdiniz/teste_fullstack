@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Grid } from "../../components/Grid/Grid";
 import { Layout } from "../../components/Layout/Layout";
 import { PokemonContext } from "../../contexts/PokemonContext";
-import { PokeCard } from "./../../components/Card/Card";
+import { PokeCard } from "./../../components/PokeCard/PokeCard";
 import { HiOutlineEmojiSad } from "react-icons/hi";
 
 export default function Favorites() {
