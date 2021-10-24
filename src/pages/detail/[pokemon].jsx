@@ -30,8 +30,7 @@ export default function Detail() {
     setLoading(false);
   };
 
-  useEffect(() => {
-    console.log("to chamando");
+  useEffect(() => { 
     if (pokemonName) {
       setLoading(true);
       getPokemon();
@@ -42,23 +41,14 @@ export default function Detail() {
     <Layout>
       <PokemonDetail />
 
-      {/* <Grid gridTitle="Todos os Pokémons">
-        {pokemonList.map((pokemon) => (
-          <PokeCard
-            key={pokemon?.id}
-            data={{
-              pokemon,
-              add: appendFavorite,
-              pop: popFavorite,
-              isFavorite: favoritesList.some(
-                (favorite) => favorite.id === pokemon.id
-              ),
-            }}
-          />
-        ))}
-      </Grid> */}
-
       <Loading isActive={loading} message="Carregando Detalhes ..." />
     </Layout>
   );
+}
+
+export async function getServerSideProps({ params }) {
+  console.log("PARAMS SS", params);
+  return {
+    props: {},
+  };
 }
