@@ -4,6 +4,8 @@ Projeto destinado à vaga FullStack - Sua Música
 
 Com o propósito de criar uma [SPA](https://developer.mozilla.org/en-US/docs/Glossary/SPA) à partir da [PokeAPI](https://pokeapi.co/) usando [NextJS](https://nextjs.org/) e deploy em nuvem utilizando [Serverless](https://www.serverless.com/framework/docs) com provedor da [AWS](https://aws.amazon.com/pt/)
 
+[Live Demo](https://d304orizb3czm.cloudfront.net/) do projeto
+
 ## Configurando o Projeto
 
 Faça o download do repositório GIT para pasta de sua preferência e entre nela através da linha de comando
