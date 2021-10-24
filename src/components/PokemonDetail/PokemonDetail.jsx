@@ -33,7 +33,7 @@ export function PokemonDetail() {
   const capitilizeName = (name) => {
     const sep = "-";
     return name
-      .split(sep)
+      ?.split(sep)
       .map((text) => text.charAt(0).toUpperCase() + text.slice(1))
       .join(" ");
   };
@@ -120,7 +120,7 @@ export function PokemonDetail() {
     <div className={styles.DetailContainer}>
       <h2 className={styles.DetailTitle}>
         {!!pokemon ? (
-          <>Detalhes de {capitilizeName(pokemon.name)}</>
+          <>Detalhes de {capitilizeName(pokemon?.name)}</>
         ) : (
           <>Nenhum Pokémon com Esse Nome</>
         )}
@@ -149,7 +149,9 @@ export function PokemonDetail() {
                   # {String(pokemon?.id).padStart(4, "0")}
                 </b>
 
-                <h3 className={styles.CardName}>{capitilizeName(pokemon?.name)}</h3>
+                <h3 className={styles.CardName}>
+                  {capitilizeName(pokemon?.name)}
+                </h3>
 
                 <div className={styles.CardTypes}>
                   {pokemon?.types.map(({ type }, index) =>
