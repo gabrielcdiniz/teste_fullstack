@@ -2,7 +2,7 @@
 
 Faça o download do repositório GIT para pasta de sua preferência e entre nela através da linha de comando
 
-```
+```sh
 kaveira in projects
 🎃 ❯ git clone https://github.com/gabrielcdiniz/teste_fullstack.git
 
@@ -13,13 +13,13 @@ kaveira in teste_fullstack on  main
 Após ter feito o download, instale as dependências do projeto
 
 com yarn:
-```
+```sh
 kaveira in teste_fullstack on  main
 🎃 ❯ yarn
 ```
 
 com npm
-```
+```sh
 kaveira in teste_fullstack on  main
 🎃 ❯ npm i
 ```
