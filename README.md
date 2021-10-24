@@ -43,7 +43,7 @@ Agora é só abrir seu navegador no endereço `http://localhost:3000` e pronto.
 Para efetuar o deploy usando _serverless_, primeiro instale-o globalmente em sua máquina
 
 ```sh
-gabrielcdiniz ❯ npm install -g serverless
+gabrielcdiniz ❯ npm i -g serverless
 ```
 
 Após feito a instalação do _serverless_, exporte as credenciais de acesso AWS em seu terminal
