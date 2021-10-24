@@ -1,28 +1,76 @@
-# Instruções de Uso:
+# Sobre
+
+Projeto destinado à vaga FullStack - Sua Música
+
+Com o propósito de criar uma [SPA](https://developer.mozilla.org/en-US/docs/Glossary/SPA) à partir da [PokeAPI](https://pokeapi.co/) usando [NextJS](https://nextjs.org/) e deploy em nuvem utilizando [Serverless](https://www.serverless.com/framework/docs) com provedor da [AWS](https://aws.amazon.com/pt/)
+
+## Configurando o Projeto
 
 Faça o download do repositório GIT para pasta de sua preferência e entre nela através da linha de comando
 
-```
-kaveira in projects
-🎃 ❯ git clone https://github.com/gabrielcdiniz/teste_fullstack.git
+```sh
+gabrielcdiniz ❯ git clone https://github.com/gabrielcdiniz/teste_fullstack.git
 
-kaveira in teste_fullstack on  main
-🎃 ❯ cd teste_fullstack
+gabrielcdiniz ❯ cd teste_fullstack
 ```
 
 Após ter feito o download, instale as dependências do projeto
 
 com yarn:
-```
-kaveira in teste_fullstack on  main
-🎃 ❯ yarn
+
+```sh
+gabrielcdiniz ❯ yarn
 ```
 
 com npm
+
+```sh
+gabrielcdiniz ❯ npm i
 ```
-kaveira in teste_fullstack on  main
-🎃 ❯ npm i
+
+## Executando o Projeto
+
+Após concluir as instalações, execute o projeto localmente
+
+```sh
+gabrielcdiniz ❯ yarn dev
 ```
+
+Agora é só abrir seu navegador no endereço `http://localhost:3000` e pronto.
+
+## Deploy para AWS
+
+Para efetuar o deploy usando _serverless_, primeiro exporte as credenciais de acesso AWS em seu terminal
+
+caso esteja usando linux
+
+```sh
+gabrielcdiniz ❯ export AWS_ACCESS_KEY_ID="your_key_id"
+
+gabrielcdiniz ❯ export AWS_SECRET_ACCESS_KEY="your_secret_key"
+```
+
+caso esteja usando windows
+
+```sh
+gabrielcdiniz ❯ set AWS_ACCESS_KEY_ID="your_key_id"
+
+gabrielcdiniz ❯ set AWS_SECRET_ACCESS_KEY="your_secret_key"
+```
+
+Agora, faça o _build_ da aplicação
+
+```sh
+gabrielcdiniz ❯ yarn build
+```
+
+Por fim, faça o _deploy_ da aplicação
+
+```sh
+gabrielcdiniz ❯ serverless
+```
+
+> (Opcional) Caso queira alterar o nome do _bucket_ e/ou _descrição_ no _deploy_, antes de fazer o _deploy_, basta abrir o arquivo **serverless.yml** e ajustar os valores das propriedades **_bucketName_** e **_description_**
 
 <!-- # Vaga de desenvolvedor fullstack
 
